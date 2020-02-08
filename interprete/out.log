@@ -1,0 +1,23 @@
+2020-02-07 12:52:59,887 [INFO ]  Starting Rasa server on http://localhost:5005
+2020-02-07 12:53:02,000 [INFO ]  Entry Point [tensor2tensor.envs.tic_tac_toe_env:TicTacToeEnv] registered with id [T2TEnv-TicTacToeEnv-v0]
+2020-02-07 12:53:05,428 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhook'
+Traceback (most recent call last):
+  File "/home/lainors/Documentos/Rasa/interprete/lib/python3.6/site-packages/sanic/app.py", line 918, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/home/lainors/Documentos/Rasa/interprete/lib/python3.6/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/home/lainors/Documentos/Rasa/interprete/lib/python3.6/site-packages/sanic/router.py", line 470, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhook not found
+2020-02-07 12:53:05,429 [ERROR]  Encountered an exception while running action 'action_animation'. Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+2020-02-07 12:54:53,391 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhook'
+Traceback (most recent call last):
+  File "/home/lainors/Documentos/Rasa/interprete/lib/python3.6/site-packages/sanic/app.py", line 918, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/home/lainors/Documentos/Rasa/interprete/lib/python3.6/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/home/lainors/Documentos/Rasa/interprete/lib/python3.6/site-packages/sanic/router.py", line 470, in _get
+    raise NotFound("Requested URL {} not found".format(url))
+sanic.exceptions.NotFound: Requested URL /webhook not found
+2020-02-07 12:54:53,392 [ERROR]  Encountered an exception while running action 'action_animation'. Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+2020-02-07 12:54:57,151 [INFO ]  Killing Sanic server now.
