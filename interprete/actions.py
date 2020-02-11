@@ -2,6 +2,7 @@ from rasa_sdk import Action
 import requests
 import json
 from datetime import datetime
+from connectionWitAI import RecognizeSpeech
 
 import spacy
 
@@ -14,7 +15,8 @@ import spacy
 API_URL = "https://h211.eps.ua.es/omuflow"
 API_KEY = ""
 
-class ApiAction(Action):
+"""
+class SpacyAction(Action):
 	def name(self):
 		return "action_animation"
 
@@ -26,13 +28,31 @@ class ApiAction(Action):
 		for token in doc:
 			    print(token.text, token.lemma_)
 		return  []
+		"""
 
+class ApiAction(Action):
+	def name(self):
+		return "action_animation"
+
+	def run(self, dispatcher, tracker, domain):
+		text = RecognizeSpeech('myspeech.wav', 4)
+		nlp = spacy.load('es')
+		message = text
+		doc = nlp(message)
+
+		for token in doc:
+			    print(token.text, token.lemma_)
+		return  []
 
 """
-Peticion a IBM para transcripcion de audio a texto
+  curl \
+ -H 'Authorization: Bearer 2FH3WJEUTXTYJ4I4VFZL33RR4ERDYEYJ' \
+ 'https://api.wit.ai/message?v=20200211&q='
 
-curl -X POST -u "apikey:05DoXwgmiHLNwSa3wrBjU6UX3dKTu4deJuJZR5OYlLRj" \
---header "Content-Type: audio/flac" \
---data-binary @audio-file.flac \
-"https://api.eu-gb.speech-to-text.watson.cloud.ibm.com/instances/3a35a1a8-c066-4079-bd2c-0104a4842cb6/v1/recognize"
+	curl -XPOST 'https://api.wit.ai/speech?v=20170307' \
+	-i -L \
+	-H "Authorization: Bearer 2FH3WJEUTXTYJ4I4VFZL33RR4ERDYEYJ" \
+	-H "Content-Type: audio/mpeg3" \
+	-H "Transfer-encoding: chunked" \
+	--data-binary "@tusaa.mp3"
 """
