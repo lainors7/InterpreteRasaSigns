@@ -19,22 +19,13 @@ class ApiAction(Action):
 		return "action_animation"
 
 	def run(self, dispatcher, tracker, domain):
-			message = tracker.latest_message.get('text')
-			print(message)
-			dispatcher.utter_message('Ejecutando la busqueda de animaciones...')
-			PARAMS = {"queryResult":
-  						{
-      						"queryText": message, "action": "omu.usuario.plan_suscripcion", 
-							"parameters": 
-							{
-							 "tiposuscripcion": message
-							}
-						}
-					}
-			r = requests.post(url=API_URL, json = PARAMS)
-			data = r.json()
-			dispatcher.utter_message(data['fulfillmentText'])
-			return  []
+		nlp = spacy.load('es')
+		message = tracker.latest_message.get('text')
+		doc = nlp(message)
+
+		for token in doc:
+			    print(token.text, token.lemma_)
+		return  []
 
 #{
 #  "queryResult":
