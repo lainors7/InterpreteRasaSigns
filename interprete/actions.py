@@ -28,7 +28,7 @@ class SpacyAction(Action):
 		for token in doc:
 			    print(token.text, token.lemma_)
 		return  []
-		"""
+"""
 
 class ApiAction(Action):
 	def name(self):
@@ -44,7 +44,16 @@ class ApiAction(Action):
 			    print(token.text, token.lemma_)
 		return  []
 
+class DefaultAction(Action):
+	def name(self):
+		return "action_default_fallback"
+
+	def run(self, dispatcher, tracker, domain):
+		dispatcher.utter_message('Lo siento, no te he entendido')
+		return  []
+
 """
+Peticion a la api Wit.ai
   curl \
  -H 'Authorization: Bearer 2FH3WJEUTXTYJ4I4VFZL33RR4ERDYEYJ' \
  'https://api.wit.ai/message?v=20200211&q='

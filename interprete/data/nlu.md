@@ -5,14 +5,16 @@
 - good morning
 - good evening
 - hey there
+- hola
+- wep
 
 ## intent:animation
-- gratuita
-- mensual
-- anual
-- envimae algo animado
-- sordo
-- animation
+- interprete
+- transcribir
+- hablar
+- escuchar
+- animar
+- escucha
 
 ## intent:goodbye
 - bye

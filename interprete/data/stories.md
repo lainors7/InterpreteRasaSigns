@@ -39,3 +39,25 @@
 * animation
     - utter_animation
     - action_animation
+
+## interactive_story_1
+* animation
+    - utter_animation
+    - action_animation
+* greet
+    - utter_greet
+* animation
+    - utter_animation
+    - action_animation
+* animation
+    - utter_animation
+    - action_animation
+* animation
+    - utter_animation
+    - action_animation
+* animation
+    - utter_animation
+    - action_animation
+* animation
+    - utter_animation
+    - action_animation
