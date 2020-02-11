@@ -1,10 +1,15 @@
-
 from rasa_sdk import Action
 import requests
 import json
 from datetime import datetime
-import token
 
+import spacy
+
+#nlp = spacy.load('en')
+#doc = nlp(u'They are looking for new laptops')
+
+#for token in doc:
+#    print(token.text, token.lemma_)
 
 API_URL = "https://h211.eps.ua.es/omuflow"
 API_KEY = ""
@@ -18,20 +23,20 @@ class ApiAction(Action):
 			print(message)
 			dispatcher.utter_message('Ejecutando la busqueda de animaciones...')
 			PARAMS = {"queryResult":
-   						 {
-        					"queryText": message, "action": "omu.usuario.plan_suscripcion", 
-							"parameters": 
-								{
-								 "tiposuscripcion": message
-								}
-   							}
+  						 {
+      					"queryText": message, "action": "omu.usuario.plan_suscripcion", 
+						"parameters": 
+							{
+							 "tiposuscripcion": message
+							}
 						}
-			r = requests.post(url=API_URL, json = PARAMS)
-			data = r.json()
-			dispatcher.utter_message(data['fulfillmentText'])
-			return  []
+					}
+		r = requests.post(url=API_URL, json = PARAMS)
+		data = r.json()
+		dispatcher.utter_message(data['fulfillmentText'])
+		return  []
 
-#{
+{
 #  "queryResult":
 #    {
 #        "queryText": "gratuita", "action": "omu.usuario.plan_suscripcion", "parameters":

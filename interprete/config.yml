@@ -1,6 +1,20 @@
-language: "es"
+language: "en"
 
-pipeline: "supervised_embeddings"
+
+pipeline:
+- name: "SpacyNLP"
+  # language model to load
+  model: "en_core_web_sm"
+
+  # when retrieving word vectors, this will decide if the casing
+  # of the word is relevant. E.g. `hello` and `Hello` will
+  # retrieve the same vector, if set to `false`. For some
+  # applications and models it makes sense to differentiate
+  # between these two words, therefore setting this to `true`.
+  case_sensitive: false
+
+
+#pipeline: "supervised_embeddings"
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
