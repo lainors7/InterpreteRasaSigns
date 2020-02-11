@@ -14,9 +14,12 @@ def record_audio(RECORD_SECONDS, WAVE_OUTPUT_FILENAME):
  
     # open a new stream for microphone
     # It creates a PortAudio Stream Wrapper class object
-    stream = audio.open(format=FORMAT,channels=CHANNELS,
-                        rate=RATE, input=True,
-                        frames_per_buffer=CHUNK)
+    stream = audio.open(format=FORMAT,
+                        channels=CHANNELS,
+                        rate=RATE, 
+                        input=True,
+                        frames_per_buffer=CHUNK
+                        )
  
     #----------------- start of recording -------------------#
     print("Listening...")
