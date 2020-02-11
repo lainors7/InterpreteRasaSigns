@@ -120,7 +120,7 @@ testem.log
 /interprete/lib
 /interprete/lib64
 /interprete/share
-
+/interprete/myspeech.wav
 
 # System Files
 .DS_Store
