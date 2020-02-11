@@ -27,10 +27,12 @@ class ApiAction(Action):
 			    print(token.text, token.lemma_)
 		return  []
 
-#{
-#  "queryResult":
-#    {
-#        "queryText": "gratuita", "action": "omu.usuario.plan_suscripcion", "parameters":
-#        { "tiposuscripcion": "gratuita" }
-#    }
-#}
+
+"""
+Peticion a IBM para transcripcion de audio a texto
+
+curl -X POST -u "apikey:05DoXwgmiHLNwSa3wrBjU6UX3dKTu4deJuJZR5OYlLRj" \
+--header "Content-Type: audio/flac" \
+--data-binary @audio-file.flac \
+"https://api.eu-gb.speech-to-text.watson.cloud.ibm.com/instances/3a35a1a8-c066-4079-bd2c-0104a4842cb6/v1/recognize"
+"""
