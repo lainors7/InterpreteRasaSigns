@@ -23,20 +23,20 @@ class ApiAction(Action):
 			print(message)
 			dispatcher.utter_message('Ejecutando la busqueda de animaciones...')
 			PARAMS = {"queryResult":
-  						 {
-      					"queryText": message, "action": "omu.usuario.plan_suscripcion", 
-						"parameters": 
+  						{
+      						"queryText": message, "action": "omu.usuario.plan_suscripcion", 
+							"parameters": 
 							{
 							 "tiposuscripcion": message
 							}
 						}
 					}
-		r = requests.post(url=API_URL, json = PARAMS)
-		data = r.json()
-		dispatcher.utter_message(data['fulfillmentText'])
-		return  []
+			r = requests.post(url=API_URL, json = PARAMS)
+			data = r.json()
+			dispatcher.utter_message(data['fulfillmentText'])
+			return  []
 
-{
+#{
 #  "queryResult":
 #    {
 #        "queryText": "gratuita", "action": "omu.usuario.plan_suscripcion", "parameters":
