@@ -1,4 +1,4 @@
-language: "en"
+language: "es"
 pipeline: "pretrained_embeddings_spacy"
 
 # Configuration for Rasa Core.

@@ -37,9 +37,11 @@ class ApiAction(Action):
 		stream.stop_stream()
 		stream.close()
 		p.terminate()
-		print (foo.text)
+		data = json.loads(foo.content)
+		text = data['_text']
+
 		nlp = spacy.load('es')
-		message = foo.text
+		message = text
 		doc = nlp(message)
 
 		print(message)
