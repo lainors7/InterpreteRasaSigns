@@ -16,6 +16,9 @@
 - animar
 - escucha
 
+## intent:stream
+- stream
+
 ## intent:goodbye
 - bye
 - goodbye

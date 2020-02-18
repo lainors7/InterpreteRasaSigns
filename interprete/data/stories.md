@@ -8,6 +8,9 @@
  * animation
     - utter_animation
     - action_animation
+## stream path
+ * stream
+    - stream_animation
 
 ## sad path 1
 * greet

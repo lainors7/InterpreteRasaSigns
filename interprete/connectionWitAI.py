@@ -2,38 +2,41 @@ import requests
 import json
 from recorder import record_audio, read_audio
  
-# Wit speech API endpoint
+# Wit API endpoint
 API_ENDPOINT = 'https://api.wit.ai/speech'
  
 # Wit.ai api access token
 wit_access_token = '2FH3WJEUTXTYJ4I4VFZL33RR4ERDYEYJ'
 
 # Numero de segundo que dura la grabacion
-num_seconds = 7
+num_seconds = 9
  
 def RecognizeSpeech(AUDIO_FILENAME, num_seconds):
  
-    # record audio of specified length in specified audio file
+    #leyendo el audio definiendo size y fichero
     record_audio(num_seconds, AUDIO_FILENAME)
  
-    # reading audio
+    #leemos el audio
     audio = read_audio(AUDIO_FILENAME)
  
-    # defining headers for HTTP request
-    headers = {'authorization': 'Bearer ' + wit_access_token, 'Content-Type': 'audio/wav'}
+    # definir el header para el http
+    headers = {'authorization': 'Bearer ' + wit_access_token, 
+                'Content-Type': 'audio/wav', 
+                'Transfer-encoding' : 'chunked'
+                }
  
-    # making an HTTP post request
+    # hacemos el http post request
     resp = requests.post(API_ENDPOINT, headers = headers, data = audio)
  
-    # converting response content to JSON format
+    # convertir respuesta a json
     data = json.loads(resp.content)
  
-    # get text from data
+    # recoger el texto
     text = data['_text']
- 
-    # return the text
+    print(text)
+    # devolver texto
     return text
  
 if __name__ == "__main__":
-    text =  RecognizeSpeech('myspeech.wav', 4)
+    text =  RecognizeSpeech('myspeech.wav', num_seconds)
     print("\nYou said: {}".format(text))
