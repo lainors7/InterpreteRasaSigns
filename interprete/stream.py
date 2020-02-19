@@ -10,7 +10,7 @@ CHUNK_SIZE = 1024
 FORMAT = pyaudio.paInt16
 RATE = 8000
 SHORT_NORMALIZE = (1.0/32768.0)
-access_key = '2FH3WJEUTXTYJ4I4VFZL33RR4ERDYEYJ'  # Your wit.ai key should go here.
+access_key = '2FH3WJEUTXTYJ4I4VFZL33RR4ERDYEYJ'  #Token API Wit.ai
 
 
 # Returns if the RMS of block is less than the threshold

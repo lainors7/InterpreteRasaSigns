@@ -1,0 +1,37 @@
+POST http://localhost:5005/conversations/{conversation_id}/messages
+Content-Type: application/json
+
+{
+      "text": "hablar",
+      "sender": "user",
+}
+    
+###
+POST  http://localhost:5055/webhook
+Content-Type: application/json
+
+{
+  "sender" : "user",
+  "text": "hola",
+  "action" : "action_animation",
+}
+
+###
+
+POST  http://localhost:5005/conversations/{conversation_id}/messages
+Content-Type: application/json
+
+{
+  "text": "hablar",
+  "sender": "user",
+}
+###
+#rasa run --endpoints endpoints.yml --enable-api -vv
+#rasa run actions
+
+POST http://localhost:5005/webhooks/rest/webhook
+
+{
+  "sender": "user",
+  "message": "hablar"
+}
